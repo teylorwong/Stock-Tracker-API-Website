@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Data Visualization</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Financial Data Visualization</h1>
+    </header>
+    <main style="min-height: calc(100vh - 120px); overflow-y: auto;">
+        <div class="search-container">
+            <form onsubmit="search(); return false;">
+                <input type="text" id="ticker" name="ticker" placeholder="Enter Ticker Symbol" style="width: 200px;">
+                <button type="submit" style="width: 80px;">Search</button>
+            </form>
+            <div id="ticker-dropdown" class="dropdown-content"></div>
+        </div>             
+        <div class="graphs-container">
+            <section id="cash-flow" class="data-section">
+                <div id="cash-flow-data"></div>
+            </section>
+            <section id="earnings" class="data-section">
+                <div id="earnings-data"></div>
+            </section>
+            <section id="dividends" class="data-section">
+                <div id="dividends-data"></div>
+            </section>
+        </div>
+        <!-- New row -->
+        <div class="graphs-container" style="margin-top: 20px;">
+            <section id="new-container-1" class="data-section"></section>
+            <section id="new-container-2" class="data-section"></section>
+            <section id="new-container-3" class="data-section"></section>
+        </div>
+        <!-- Extra space at the bottom -->
+        <div style="height: 80px;"></div>
+    </main>
+    <footer>
+        <p>Powered by FinancialModelingPrep API</p>
+    </footer>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
